@@ -1,32 +1,35 @@
 <template>
-   <section class="masthead" role="img" aria-label="Image Description">
-  <h1>
-  Nuxt Food App
-  </h1>
-    <button @click="getData">
-    View Restaurants
+  <section class="masthead" role="img" aria-label="Image Description">
+    <h1>Nuxt Food App</h1>
+    <button>
+      <a href="./restaurant"> View restaurant</a>
     </button>
-</section>
-
+  </section>
 </template>
 
 <script>
-    export default {
-      methods:{
-    getData:async function(){
+export default {
+  methods: {
+    getData: async function () {
       this.$store.dispatch("getFoodData");
-    } 
-  }
-    }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .masthead {
-  padding:15px 30px;
+  padding: 15px 30px;
   height: 75vh; /* if you don't want it to take up the full screen, reduce this number */
   overflow: hidden;
   background-size: cover !important;
-  background: linear-gradient(-45deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0.65) 100%), url('../assets/headerimg.jpg') no-repeat center center scroll;
+  background: linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 32%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("../assets/headerimg.jpg") no-repeat center center scroll;
 }
 h1 {
   font-style: normal;
@@ -37,9 +40,6 @@ h1 {
   line-height: 1;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 40px;
-  margin-top:0px;
+  margin-top: 0px;
 }
-
-
-
 </style>
