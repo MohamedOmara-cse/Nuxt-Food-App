@@ -20,12 +20,13 @@ export default {
 
 <style lang="scss" scoped>
 footer {
+  width: 95.5%;
   height: 25px;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: row;
-  background: #062333;
+  background: #35383a;
 }
 p {
   color: white;
