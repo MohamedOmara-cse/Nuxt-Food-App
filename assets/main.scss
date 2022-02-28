@@ -338,6 +338,19 @@ section.restaurantinfo {
   }
 }
 
+@media screen and (max-width: 800px) {
+  section.restaurantinfo {
+    padding: 20px 20px;
+    .iteminfo {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+}
 //cart page
 
 .cart.container {
