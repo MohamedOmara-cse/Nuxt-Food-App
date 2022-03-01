@@ -2,7 +2,7 @@
   <div class="container">
     <div class="description">
       <img :src="`/${currentItem.img}`" alt="food" />
-      <div>
+      <div class="descriptionDetails">
         <h2>Description :</h2>
         <h4>{{ currentItem.description }}</h4>
       </div>
@@ -93,5 +93,20 @@ label {
 }
 fieldset {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.descriptionDetails {
+  padding: 2px;
+}
+@media screen and(max-width :600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+  }
+  .description {
+    margin: auto;
+    width: 90%;
+    height: 90%;
+  }
 }
 </style>

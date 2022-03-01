@@ -2,22 +2,22 @@
   <nav>
     <ul>
       <li><nuxt-link to="/">Home</nuxt-link></li>
-      <li><nuxt-link to="/resturant">resturant</nuxt-link></li>
     </ul>
 
-    <button @click="darkMode" id="dark-mode">
+    <button @click="changeMode" id="dark-mode">
       <img src="/night-mode.png" alt="night" />
     </button>
   </nav>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
-  components: {},
   methods: {
-    darkMode() {
-      document.querySelector("body").classList.toggle("dark-mode");
-    },
+    ...mapMutations([
+      "changeMode", //also supports payload `this.nameOfMutation(amount)`
+    ]),
   },
 };
 </script>

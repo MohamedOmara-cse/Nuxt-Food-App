@@ -1,6 +1,7 @@
 export const state = () => ({
-  "fooddata" :[],
-})
+  fooddata: [],
+  mode: "",
+});
 
 //export const getters = {
 //    getterValue: state => {
@@ -9,37 +10,41 @@ export const state = () => ({
 //}
 //
 export const mutations = {
-//    updateValue: (state, payload) => {
-//        state.value = payload
- updateFoodData:(state,data) =>{
-   state.fooddata=data;
- }
-}
+  //    updateValue: (state, payload) => {
+  //        state.value = payload
+  updateFoodData: (state, data) => {
+    state.fooddata = data;
+  },
+  changeMode: (state) => {
+    state.mode ? (state.mode = "") : (state.mode = "dark-mode");
+  },
+};
 //}
 //
 export const actions = {
-//    updateActionValue({ commit }) {
-//        commit('updateValue', payload)
-//    }
- async getFoodData({ state, commit }) {
-   if (state.fooddata.length) return;
+  //    updateActionValue({ commit }) {
+  //        commit('updateValue', payload)
+  //    }
+  async getFoodData({ state, commit }) {
+    if (state.fooddata.length) return;
 
-   try {
-    await fetch(
-  "https://dva9vm8f1h.execute-api.us-east-2.amazonaws.com/production/restaurants",
-  {
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": process.env.AWS_API_KEY
+    try {
+      await fetch(
+        "https://dva9vm8f1h.execute-api.us-east-2.amazonaws.com/production/restaurants",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": process.env.AWS_API_KEY,
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+          commit("updateFoodData", data);
+        });
+    } catch (err) {
+      console.log(err);
     }
-  }
-  ) .then(response => response.json())
-       .then(data => {
-         console.log("Success:", data);
-         commit("updateFoodData", data);
-       });
-   } catch (err) {
-     console.log(err);
-   }
- }
-}
+  },
+};
