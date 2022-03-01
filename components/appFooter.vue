@@ -20,8 +20,11 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  width: 95.5%;
+  width: 85%;
+  margin: auto;
+
   height: 25px;
+
   justify-content: center;
   align-items: center;
   display: flex;

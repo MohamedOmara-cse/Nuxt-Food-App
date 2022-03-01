@@ -4,7 +4,9 @@
       <appNav />
       <Nuxt />
     </div>
-    <div></div>
+    <div>
+      <app-footer />
+    </div>
   </div>
 </template>
 
@@ -15,10 +17,12 @@ import appNav from "@/components/appNav.vue";
 import appHeader from "@/components/appHeader.vue";
 import AppHeader from "../components/appHeader.vue";
 import appFooter from "@/components/appFooter.vue";
+import AppFooter from "../components/appFooter.vue";
 export default {
   components: {
     appNav,
-    appFooter,
+
+    AppFooter,
   },
   computed: {
     ...mapState(["mode"]),
@@ -33,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 </style>
