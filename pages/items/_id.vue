@@ -17,7 +17,7 @@
           <h3>Add Ons</h3>
         </legend>
         <div v-for="one in currentItem.addOns" :key="one">
-          <input type="checkbox" :name="one" :id="one" />
+          <input type="checkbox" :value="one" v-model="addOns" />
           <label :for="one">{{ one }}</label>
         </div>
       </fieldset>
@@ -26,7 +26,7 @@
           <h3>Add Options</h3>
         </legend>
         <div v-for="option in currentItem.options" :key="option">
-          <input type="radio" :name="option" :id="option" />
+          <input type="radio" :value="option" v-model="addOptions" />
           <label :for="option">{{ option }}</label>
         </div>
       </fieldset>
@@ -38,9 +38,11 @@
         name="numberOfPieces"
         id="numberOfPieces"
         placeholder="1"
+        v-model="numOfPecies"
       />
 
-      <button>Add to Cart</button>
+      <button @click="addToCart">Add to Cart</button>
+      <p>{{ message }}</p>
     </div>
   </div>
 </template>
@@ -53,7 +55,25 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      addOns: [],
+      addOptions: "",
+      numOfPecies: "1",
+      message: "",
     };
+  },
+  methods: {
+    addToCart: function () {
+      if (this.addOns.length != 0) {
+        let item = {};
+        item.id = this.currentItem.id;
+        item.name = this.currentItem.item;
+        item.addOns = this.addOns;
+        item.option = this.addOptions;
+        item.price = this.currentItem.price;
+        item.amount = this.numOfPecies;
+        this.$store.commit("addToCart", item);
+      } else this.message = "please Choose Correct Adds And Option";
+    },
   },
   computed: {
     ...mapState(["fooddata"]),

@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  width: 85%;
+  width: 83%;
   margin: auto;
 }
 </style>

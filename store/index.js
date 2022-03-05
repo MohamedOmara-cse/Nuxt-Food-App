@@ -1,6 +1,32 @@
 export const state = () => ({
   fooddata: [],
   mode: "",
+  cart: [
+    {
+      id: "22672b93-2c65-4fd9-b151-683f7eb7df4a",
+      name: "Shrimp Dumplings",
+      addOns: ["mango pudding"],
+      option: "",
+      price: 6.49,
+      amount: "2",
+    },
+    {
+      id: "22672b93-2c65-4fd9-b151-683f7eb7df4a",
+      name: "Shrimp Dumplings",
+      addOns: ["mango pudding", "steamed sesame ball"],
+      option: "",
+      price: 6.49,
+      amount: "2",
+    },
+    {
+      id: "22672b93-2c65-4fd9-b151-683f7eb7df4a",
+      name: "Shrimp Dumplings",
+      addOns: ["mango pudding", "steamed sesame ball"],
+      option: "",
+      price: 6.49,
+      amount: "2",
+    },
+  ],
 });
 
 //export const getters = {
@@ -17,6 +43,13 @@ export const mutations = {
   },
   changeMode: (state) => {
     state.mode ? (state.mode = "") : (state.mode = "dark-mode");
+  },
+  addToCart: (state, item) => {
+    item.index = state.cart.length;
+    state.cart.push(item);
+  },
+  deleteOrder(state, index) {
+    state.cart.splice(index, 1);
   },
 };
 //}
