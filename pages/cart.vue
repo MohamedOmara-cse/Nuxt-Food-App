@@ -49,13 +49,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in cart" :key="order">
+          <tr v-for="order in cart" :key="order.id">
             <td>{{ order.name }} {{ order.option }}</td>
             <td>{{ extractData(order.addOns) }}</td>
             <td>{{ order.amount }}</td>
             <td>
               {{ order.amount * order.price }} $
-              <button @click="deleteOrder" class="delbtn" :id="order.index">
+              <button @click="deleteOrder" class="delbtn" :id="order.id">
                 X
               </button>
             </td>
@@ -112,7 +112,12 @@ h1 {
   font-size: 10px;
 }
 svg {
-  width: 200px;
+  width: 185px;
   height: 200px;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 50px;
+  }
 }
 </style>

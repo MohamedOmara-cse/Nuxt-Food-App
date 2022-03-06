@@ -42,7 +42,19 @@
       />
 
       <button @click="addToCart">Add to Cart</button>
-      <p>{{ message }}</p>
+
+      <div v-if="!messageError" class="toast">
+        <p>
+          order Added! <br />
+          Return to <a href="/restaurant">Restaurant</a>
+        </p>
+      </div>
+      <div v-else class="toast">
+        <p>
+          Please select options and <br />
+          addons before continuing
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -58,25 +70,29 @@ export default {
       addOns: [],
       addOptions: "",
       numOfPecies: "1",
-      message: "",
+      messageError: true,
     };
   },
   methods: {
     addToCart: function () {
       if (this.addOns.length != 0) {
         let item = {};
-        item.id = this.currentItem.id;
+        item.id = this.orderNumber;
         item.name = this.currentItem.item;
         item.addOns = this.addOns;
         item.option = this.addOptions;
         item.price = this.currentItem.price;
         item.amount = this.numOfPecies;
+        this.messageError = false;
         this.$store.commit("addToCart", item);
-      } else this.message = "please Choose Correct Adds And Option";
+        this.$store.commit("updateOrderNumber");
+      } else {
+        this.messageError = true;
+      }
     },
   },
   computed: {
-    ...mapState(["fooddata"]),
+    ...mapState(["fooddata", "orderNumber"]),
 
     currentItem: function () {
       let i, j;
@@ -128,5 +144,9 @@ fieldset {
     width: 90%;
     height: 90%;
   }
+}
+a,
+p {
+  color: #fff;
 }
 </style>

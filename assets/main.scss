@@ -282,16 +282,14 @@ table th {
   background: #a8060e;
   color: white;
   border-radius: 3px;
-  padding: 12px 24px;
-  position: absolute;
-  top: 0;
-  right: 0;
+  width: 70%;
+  margin-top: 10px;
   text-align: center;
-
-  a {
+  padding: 5px 0;
+  a,
+  p {
     color: white;
     font-weight: bold;
-    text-decoration: none;
   }
 }
 

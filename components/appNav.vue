@@ -2,6 +2,7 @@
   <nav>
     <ul>
       <li><nuxt-link to="/">Home</nuxt-link></li>
+      <li><nuxt-link to="/restaurant">Restaurant</nuxt-link></li>
     </ul>
     <ul id="cart">
       <li><n-link to="/cart"> Cart</n-link></li>
