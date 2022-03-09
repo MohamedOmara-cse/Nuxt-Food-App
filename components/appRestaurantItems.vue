@@ -6,12 +6,9 @@
       <h3>rating : {{ category.rating }} / 5</h3>
 
       <div class="row">
-        <div
-          v-for="item in category.menu"
-          :key="`${item.id}`"
-          :class="'items'"
-          :style="`background :url(${item.img}) no-repeat center center`"
-        >
+        <div v-for="item in category.menu" :key="`${item.id}`" :class="'items'">
+          <img :src="item.img" alt="food" />
+
           <div class="iteminfo">
             <div>
               <p>{{ item.item }}</p>
@@ -40,6 +37,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.foo {
+img {
+  border-radius: 10px;
+  height: 80%;
+  width: 100%;
 }
 </style>

@@ -18,21 +18,27 @@ html,
 .content {
   min-height: calc(100vh - 50px);
 }
-
+p {
+  padding: 0 5px;
+}
 // footer {
 //   height: 50px;
 // }
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+p {
   font-family: "Poppins";
   font-weight: 600;
+  padding-left: 5px;
 }
 // nav
 
 nav {
-  padding: 5px 30px;
+  padding: 10px 30px;
   background: #082c40;
   color: white;
   position: relative;
@@ -45,13 +51,14 @@ a {
   text-decoration: none;
 }
 ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
+  list-style-type: none;
+  margin: 0;
   padding: 0;
+  overflow: hidden;
 
   li {
-    padding-right: 40px;
+    float: left;
+    padding: 5px 40px 0 0;
   }
 }
 
@@ -128,6 +135,7 @@ fieldset {
   line-height: 1.6;
 
   span {
+    box-shadow: 2px 6px 6px 0 rgb(255, 255, 255);
     font-size: 14px;
     padding: 8px 12px;
     border-radius: 1000px;
@@ -321,13 +329,13 @@ section.restaurantinfo {
     border-radius: 5px;
     background-size: 200px;
     position: relative;
-    box-shadow: 2px 6px 6px 0 rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   }
 
   .iteminfo {
     background: white;
-    width: 90%;
-    padding: 15px;
+    width: 100%;
+
     position: absolute;
     bottom: 0;
     display: flex;
@@ -339,13 +347,19 @@ section.restaurantinfo {
 @media screen and (max-width: 800px) {
   section.restaurantinfo {
     padding: 5px 5px;
-    .iteminfo {
-      width: 90%;
+    .items {
+      margin: 30px;
     }
   }
+
   .row {
     display: flex;
     flex-direction: column;
+  }
+  ul {
+    li {
+      padding: 5px 20px 0 0;
+    }
   }
 }
 //cart page

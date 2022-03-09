@@ -1,14 +1,22 @@
 <template>
   <div>
-    <footer>
-      <p>Powered By Mohamed Omara</p>
-      <a href="https://www.linkedin.com/in/mohamed-said-omara">
-        <img src="/linkedin.png" alt="" />
-      </a>
-      <a href="https://github.com/MohamedOmara-cse/Nuxt-Food-App">
-        <img src="/github.png" alt="" />
-      </a>
-    </footer>
+    <ul>
+      <li>
+        <h5>Powered By Mohamed Omara</h5>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/in/mohamed-said-omara">
+          <img src="/linkedin.png" alt="" />
+        </a>
+      </li>
+
+      <li>
+        <a href="https://github.com/MohamedOmara-cse/Nuxt-Food-App">
+          <img src="/github.png" alt="" />
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -20,7 +28,6 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  width: 85%;
   margin: auto;
 
   height: 25px;
@@ -31,11 +38,23 @@ footer {
   flex-direction: row;
   background: #35383a;
 }
+ul {
+  h5 {
+    margin: 0;
+  }
+  padding: 5px 5px;
+  background: #082c40;
+  color: white;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 p {
   color: white;
 }
 a {
-  padding-left: 15px;
+  margin-left: 15px;
 }
 img {
   width: 30px;

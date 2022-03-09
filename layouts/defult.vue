@@ -3,9 +3,7 @@
     <div>
       <appNav />
       <Nuxt />
-    </div>
-    <div>
-      <app-footer />
+      <app-footer class="footerDiv" />
     </div>
   </div>
 </template>
@@ -36,8 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-footer {
-  width: 83%;
-  margin: auto;
+.footerDiv {
+  position: relative;
+  width: 100%;
+  bottom: 0;
 }
 </style>

@@ -49,7 +49,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in cart" :key="order.id">
+          <tr class="cartOrder" v-for="order in cart" :key="order.id">
             <td>{{ order.name }} {{ order.option }}</td>
             <td>{{ extractData(order.addOns) }}</td>
             <td>{{ order.amount }}</td>
@@ -115,9 +115,13 @@ svg {
   width: 185px;
   height: 200px;
 }
+
 @media screen and (max-width: 600px) {
   .container {
     padding: 50px;
+  }
+  td {
+    text-align: left;
   }
 }
 </style>

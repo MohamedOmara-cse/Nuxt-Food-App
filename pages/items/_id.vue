@@ -16,44 +16,38 @@
         <legend>
           <h3>Add Ons</h3>
         </legend>
-        <div v-for="one in currentItem.addOns" :key="one">
+        <div class="inputField" v-for="one in currentItem.addOns" :key="one">
           <input type="checkbox" :value="one" v-model="addOns" />
           <label :for="one">{{ one }}</label>
         </div>
       </fieldset>
+    </div>
+    <div class="radioDiv">
       <fieldset v-if="currentItem.options">
         <legend>
           <h3>Add Options</h3>
         </legend>
-        <div v-for="option in currentItem.options" :key="option">
-          <input type="radio" :value="option" v-model="addOptions" />
+        <div
+          class="inputField"
+          v-for="option in currentItem.options"
+          :key="option"
+        >
+          <input type="radio" :value="option" v-model="addOptions" checked />
           <label :for="option">{{ option }}</label>
         </div>
       </fieldset>
-    </div>
-    <div>
-      <input
-        type="number"
-        min="1"
-        name="numberOfPieces"
-        id="numberOfPieces"
-        placeholder="1"
-        v-model="numOfPecies"
-      />
 
-      <button @click="addToCart">Add to Cart</button>
+      <div>
+        <input
+          type="number"
+          min="1"
+          name="numberOfPieces"
+          id="numberOfPieces"
+          placeholder="1"
+          v-model="numOfPecies"
+        />
 
-      <div v-if="!messageError" class="toast">
-        <p>
-          order Added! <br />
-          Return to <a href="/restaurant">Restaurant</a>
-        </p>
-      </div>
-      <div v-else class="toast">
-        <p>
-          Please select options and <br />
-          addons before continuing
-        </p>
+        <button @click="addToCart">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -109,6 +103,10 @@ export default {
 <style lang="scss" scoped>
 label {
   font-weight: bold;
+  margin-left: 5px;
+}
+.radioDiv {
+  margin-top: 90px;
 }
 .container {
   margin: 50px 200px;
@@ -124,7 +122,7 @@ label {
 
   img {
     width: 100%;
-    height: 70%;
+    height: 65%;
   }
 }
 fieldset {
@@ -135,18 +133,24 @@ fieldset {
 }
 @media screen and(max-width :600px) {
   .container {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 100%;
+    grid-gap: 0px;
     margin: 10px 10px;
   }
   .description {
     margin: auto;
-    width: 90%;
+    width: 95%;
     height: 90%;
   }
+
+  .radioDiv {
+    margin: 5px;
+  }
 }
-a,
-p {
-  color: #fff;
+input {
+  padding: 5px;
+}
+.inputField {
+  margin: 5px;
 }
 </style>
