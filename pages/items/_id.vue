@@ -49,6 +49,7 @@
 
         <button @click="addToCart">Add to Cart</button>
       </div>
+      <p>{{ message }}</p>
     </div>
   </div>
 </template>
@@ -64,7 +65,7 @@ export default {
       addOns: [],
       addOptions: "",
       numOfPecies: "1",
-      messageError: true,
+      message: "",
     };
   },
   methods: {
@@ -77,11 +78,11 @@ export default {
         item.option = this.addOptions;
         item.price = this.currentItem.price;
         item.amount = this.numOfPecies;
-        this.messageError = false;
+        this.message = "Order was added! ";
         this.$store.commit("addToCart", item);
         this.$store.commit("updateOrderNumber");
       } else {
-        this.messageError = true;
+        this.message = "Please choose Add Ones and Option ! ";
       }
     },
   },
@@ -122,7 +123,7 @@ label {
 
   img {
     width: 100%;
-    height: 65%;
+    height: 60%;
   }
 }
 fieldset {
@@ -140,7 +141,6 @@ fieldset {
   .description {
     margin: auto;
     width: 95%;
-    height: 90%;
   }
 
   .radioDiv {

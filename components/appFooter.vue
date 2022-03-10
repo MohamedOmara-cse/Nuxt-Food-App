@@ -27,28 +27,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-footer {
-  margin: auto;
-
-  height: 25px;
-
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  background: #35383a;
-}
 ul {
-  h5 {
-    margin: 0;
-  }
-  padding: 5px 5px;
   background: #082c40;
   color: white;
   position: relative;
   align-items: center;
   display: flex;
   justify-content: center;
+
+  h5 {
+    margin: 0;
+  }
 }
 p {
   color: white;
