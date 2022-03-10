@@ -398,6 +398,13 @@ section.restaurantinfo {
   --bg: #091a28;
   --bg-secondary: #071521;
   --border-color: #0d2538;
+  th,
+  td {
+    color: black;
+  }
+  p {
+    color: #ffff;
+  }
 }
 .sepia-mode {
   --color: #433422;
